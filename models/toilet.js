@@ -2,11 +2,15 @@ const mongoose = require('mongoose')
 
 const toiletSchema = new mongoose.Schema({
     place: String,
-    rating: [1,2,3,4,5],
-    image: String,
+    rating: Number,
+    imageUrl: String,
     review: String,
     latitude: String,
-    longitude: String
+    longitude: String,
+    timestamp: {
+        type: Date,
+        default: Date.now
+    }
 })
 
 module.exports = mongoose.model('Toilet', toiletSchema)
