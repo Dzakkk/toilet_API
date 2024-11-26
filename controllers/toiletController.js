@@ -46,7 +46,20 @@ const getToilet = async (req, res) => {
     }
 }
 
+const toilet = async (req, res) => {
+     try {
+        const data = await Toilet.findById(req.params.id);
+        if (!data) {
+            return res.status(404).send('not found')
+        }
+        res.send(data)
+     } catch (error){
+        res.status(400).send(error.message)
+     }
+}
+
 module.exports = {
     addToilet,
-    getToilet
+    getToilet,
+    toilet,
 };

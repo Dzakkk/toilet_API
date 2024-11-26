@@ -41,7 +41,7 @@ app.use(express.urlencoded({ extended: true }));
 
 const toiletRoutes = require('./routes/toiletRoutes');
 app.use('/api/toilets', toiletRoutes);
-
+app.use('/api/toilets/:id', toiletRoutes)
 
 
 const port = process.env.port || 3000;
